@@ -72,13 +72,45 @@
         }
     }
 
-    $("#FileUpload").change(function () {
-        debugger
-        var filePath = $('#FileUpload').val();
-        filePath = filePath.split("\\")[2];
-        filePath = "\\Category\\" + filePath.split('.')[0] + "\\" + filePath;
-        $('#FilePath').val(filePath);
-        
-        readURL(this);
-    });
+       
+            $('#FileUpload').change(function () {
+                var filePath = $('#FileUpload').val();
+                filePath = filePath.split("\\")[2];
+                filePath = "\\Category\\" + filePath.split('.')[0] + "\\" + filePath;
+                $('#FilePath').val(filePath);
+
+                if (window.FormData !== undefined) {
+                    
+                    var fileUpload = $("#FileUpload").get(0);
+                    var files = fileUpload.files;
+
+                    var fileData = new FormData();
+                    for (var i = 0; i < files.length; i++) {
+                        fileData.append(files[i].name, files[i]);
+                       
+                    }
+
+
+                    $.ajax({
+                        url: '/ASPEx_2/Category/AddAsset',
+                        type: "POST",
+                        contentType: false, // Not to set any content header  
+                        processData: false, // Not to process data  
+                        data: fileData,
+                        success: function (result) {
+                            
+                            readURL(fileUpload);
+                        },
+                        error: function (err) {
+                            //alert(err.statusText);
+                            alert("asd");
+                            readURL(fileUpload);
+                        }
+                    });
+                } else {
+                    alert("FormData is not supported.");
+                }
+            });
+      
+       
 </script>

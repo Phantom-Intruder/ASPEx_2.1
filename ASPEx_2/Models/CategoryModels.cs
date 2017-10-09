@@ -95,32 +95,42 @@ namespace ASPEx_2.Models
 		}
 
 		/// <summary>
+		/// Upload asset to path 
+		/// </summary>
+		public void Upload()
+		{
+			this.FileUpload.SaveAs(PathUtility.CombinePaths(this.TempFolderPath, this.FileUpload.FileName));
+		}
+
+		/// <summary>
 		/// Create a new record and insert into database
 		/// </summary>
 		/// <param name="model"></param>
 		/// <param name="filePathField"></param>
 		private void CreateNewRecord(string filePathField)
 		{
-			Category		record		= Category.ExecuteCreate(this.Name,
-																 this.Description,
-																 filePathField,
-																 1,
-																 50,
-																 51);
+			Category		record				= Category.ExecuteCreate(this.Name,
+																		 this.Description,
+																		 filePathField,
+																		 1,
+																		 50,
+																		 51);
 
 			record.Insert();
-			this.id						= record.ID;
-			if (this.FilePath != null)
-			{
-				if (!Directory.Exists(this.FolderPath))
-				{
-					Directory.CreateDirectory(this.FolderPath);
-				}
-				string[]		filePath		= this.FilePath.Split('\\');
-				File.Copy(PathUtility.CombinePaths(this.TempFolderPath, filePath[filePath.Length-1]),
-							PathUtility.CombinePaths(this.FolderPath, filePath[filePath.Length-1]));
-			} 
+			this.id								= record.ID;
+			filePathField						= CopyFileIntoFilestore();
+			Category		updatedRecord		= Category.ExecuteCreate(this.Name,
+																		 this.Description,
+																		 filePathField,
+																		 1,
+																		 50,
+																		 51);
+			record.Update(this.id, updatedRecord);
+		}
 
+		internal bool ValidateAddAsset(CategoryModels model)
+		{
+			throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -134,25 +144,19 @@ namespace ASPEx_2.Models
 			HttpPostedFileBase			file						= this.fileBase;
 			string[]					filePath					= this.FilePath.Split('\\');
 
-			file.SaveAs(PathUtility.CombinePaths(this.TempFolderPath, filePath[filePath.Length-1]));
+//			file.SaveAs(PathUtility.CombinePaths(this.TempFolderPath, filePath[filePath.Length-1]));
 			string						directoryWithFolder			= Volume.Toolkit.Paths.PathUtility.CombinePaths(Config.StoragePath, Config.FOLDER_CATEGORY);
-			string[]					directories					= Directory.GetDirectories(directoryWithFolder);
-			int							folderNumber				= directories.Length;
-			folderNumber											= folderNumber + 1;
-			string						targetPath					= directoryWithFolder + "\\"+ folderNumber;
-			string						destFile					= Volume.Toolkit.Paths.PathUtility.CombinePaths(targetPath, "" + folderNumber + ".png");
-			if (!System.IO.Directory.Exists(targetPath))
+	
+			string						destFile					= Volume.Toolkit.Paths.PathUtility.CombinePaths(directoryWithFolder, this.id.ToString(),  this.id+ ".png");
+
+			if(!Directory.Exists(PathUtility.CombinePaths(directoryWithFolder, this.id.ToString())))
 			{
-				System.IO.Directory.CreateDirectory(targetPath);
+				System.IO.Directory.CreateDirectory(PathUtility.CombinePaths(directoryWithFolder, this.id.ToString()));
 				file.SaveAs(destFile);
 			}
-			else
-			{
-				Console.WriteLine("Source path does not exist!");
-			}
+			
 
-
-			filePathField											= "/" + Config.FOLDER_CATEGORY + "/" + folderNumber + "/" + folderNumber + ".png";
+			filePathField											= "/" + Config.FOLDER_CATEGORY + "/" + this.ID.ToString() + "/" + this.ID + ".png";
 			return filePathField;
 		}
 
@@ -277,11 +281,7 @@ namespace ASPEx_2.Models
 		public void Save()
 		{
 			string		filePathField		= String.Empty;
-			if (this.fileBase != null)
-			{
-				filePathField				= this.CopyFileIntoFilestore();
-			}
-			else
+			if (this.fileBase == null)
 			{
 				filePathField				= this.FilePath;
 			}
@@ -291,12 +291,15 @@ namespace ASPEx_2.Models
 			}
 			else
 			{
-				Category		record		= Category.ExecuteCreate(this.Name,
-																	 this.Description,
-																	 filePathField,
-																	 1,
-																	 50,
-																	 51);
+				
+				this.id								= this.ID;
+				filePathField						= CopyFileIntoFilestore();
+				Category		record				= Category.ExecuteCreate(this.Name,
+																			 this.Description,
+																			 filePathField,
+																			 1,
+																			 50,
+																			 51);
 
 				record.Update(this.ID, record);
 			}

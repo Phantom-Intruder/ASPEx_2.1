@@ -99,6 +99,26 @@ namespace ASPEx_2.Controllers
 			
             return View(this.TempSession);
         }
+
+		/// <summary>
+		/// Adds assets the session question 
+		/// </summary>
+		/// <returns></returns>
+		[HttpPost]
+		public void AddAsset(string description)
+		{
+			foreach (string	fileObject in Request.Files)
+			{
+				HttpPostedFileBase			file					= Request.Files[fileObject] as HttpPostedFileBase;
+				CategoryModels				model					= new CategoryModels();
+				model.FileUpload									= file;
+				model.Upload();
+				
+				this.TempSession.FileUpload							= model.FileUpload;
+			}
+			
+			//return Json(FileUploadResponse.GetAdminAssetModel(modelList), "text/x-json", JsonRequestBehavior.AllowGet);
+		}
 		#endregion
 
 		#region Get methods
