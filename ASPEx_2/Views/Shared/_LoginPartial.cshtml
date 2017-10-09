@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNet.Identity
+@using ASPEx_2.Helpers;
+@if (SessionSingleton.Current.CurrentUserSession != null)
+{
+    using (Html.BeginForm("LogOff", "LogOffTest", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Hello " + SessionSingleton.Current.CurrentUserSession.FirstName + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </li>
+        @{  if (SessionSingleton.Current.CurrentUserRole != 0)
+            {
+                <li>@Html.ActionLink("Admin controls", "AdminView", "AdminView", routeValues: null, htmlAttributes: new { id = "adminLink" })</li>
+            }
+            else
+            {
+                <li>@Html.ActionLink("Cart", "ShoppingCartView", "ShoppingCart", routeValues: null, htmlAttributes: new { id = "cartLink" })</li>
+                }
+            }
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+</ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

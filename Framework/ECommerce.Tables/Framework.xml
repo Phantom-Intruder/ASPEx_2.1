@@ -1,0 +1,719 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<framework type="SqlServerSchema">
+  <settings>
+    <version>6.1</version>
+    <root-directory-tables>ECommerce.Tables</root-directory-tables>
+    <root-directory-sql>ECommerce.SQL</root-directory-sql>
+    <author>Volume Technologies RADA Generator v6.1 : Achintha.Premarathne</author>
+  </settings>
+  <tables>
+    <table>
+      <name>Account</name>
+      <name-sql>Account</name-sql>
+      <name-tables>Account</name-tables>
+      <namespace-sql>ECommerce.SQL.Active.HR</namespace-sql>
+      <namespace-tables>ECommerce.Tables.Active.HR</namespace-tables>
+      <inherit-from>GenericPrincipal, IComparable</inherit-from>
+      <relative-directory-sql>Active/HR</relative-directory-sql>
+      <relative-directory-tables>Active/HR</relative-directory-tables>
+      <list-text-accessor></list-text-accessor>
+      <list-value-accessor></list-value-accessor>
+      <columns>
+        <column>
+          <name-database>ID</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>True</is-identity>
+          <appears-execute-create>False</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for ID</comment>
+          <is-compare-to>True</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>first_name</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>50</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for FirstName</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>last_name</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>50</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for LastName</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>email</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>255</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Email</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>password</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>50</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Password</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>salt</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>50</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Salt</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>contact_no</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>30</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for ContactNo</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>shipping_address</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>250</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for ShippingAddress</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>country</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>50</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Country</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>status</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Status</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>role</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Role</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>date_created</name-database>
+          <type-database>DateTime</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>False</appears-execute-create>
+          <auto-current-date>True</auto-current-date>
+          <comment>No information available for DateCreated</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>date_modified</name-database>
+          <type-database>DateTime</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>False</appears-execute-create>
+          <auto-current-date>True</auto-current-date>
+          <comment>No information available for DateModified</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>created_account_id</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for CreatedAccountID</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name>ECommerce.Tables.Active.HR.Account</primary-table-name>
+        </column>
+        <column>
+          <name-database>modified_account_id</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for ModifiedAccountID</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name>ECommerce.Tables.Active.HR.Account</primary-table-name>
+        </column>
+      </columns>
+    </table>
+    <table>
+      <name>Category</name>
+      <name-sql>Category</name-sql>
+      <name-tables>Category</name-tables>
+      <namespace-sql>ECommerce.SQL.Content</namespace-sql>
+      <namespace-tables>ECommerce.Tables.Content</namespace-tables>
+      <inherit-from>Object, IComparable</inherit-from>
+      <relative-directory-sql>Content</relative-directory-sql>
+      <relative-directory-tables>Content</relative-directory-tables>
+      <list-text-accessor></list-text-accessor>
+      <list-value-accessor></list-value-accessor>
+      <columns>
+        <column>
+          <name-database>ID</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>True</is-identity>
+          <appears-execute-create>False</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for ID</comment>
+          <is-compare-to>True</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>name</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>200</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Name</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>description</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>MAX</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Description</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>image_name</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>500</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for ImageName</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>status</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Status</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>True</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>date_created</name-database>
+          <type-database>DateTime</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>False</appears-execute-create>
+          <auto-current-date>True</auto-current-date>
+          <comment>No information available for DateCreated</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>date_modified</name-database>
+          <type-database>DateTime</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>False</appears-execute-create>
+          <auto-current-date>True</auto-current-date>
+          <comment>No information available for DateModified</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>created_account_id</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for CreatedAccountID</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name>ECommerce.Tables.Active.HR.Account</primary-table-name>
+        </column>
+        <column>
+          <name-database>modified_account_id</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for ModifiedAccountID</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name>ECommerce.Tables.Active.HR.Account</primary-table-name>
+        </column>
+      </columns>
+    </table>
+    <table>
+      <name>Order</name>
+      <name-sql>Order</name-sql>
+      <name-tables>Order</name-tables>
+      <namespace-sql>ECommerce.SQL.Content</namespace-sql>
+      <namespace-tables>ECommerce.Tables.Content</namespace-tables>
+      <inherit-from>Object, IComparable</inherit-from>
+      <relative-directory-sql>Content</relative-directory-sql>
+      <relative-directory-tables>Content</relative-directory-tables>
+      <list-text-accessor></list-text-accessor>
+      <list-value-accessor></list-value-accessor>
+      <columns>
+        <column>
+          <name-database>ID</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>True</is-identity>
+          <appears-execute-create>False</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for ID</comment>
+          <is-compare-to>True</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>account_id</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for AccountID</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>True</list-by-this-column>
+          <primary-table-name>ECommerce.Tables.Active.HR.Account</primary-table-name>
+        </column>
+        <column>
+          <name-database>date_created</name-database>
+          <type-database>DateTime</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>False</appears-execute-create>
+          <auto-current-date>True</auto-current-date>
+          <comment>No information available for DateCreated</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>status</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Status</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>True</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>payment_method</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for PaymentMethod</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>total_amount</name-database>
+          <type-database>Decimal</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for TotalAmount</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+      </columns>
+    </table>
+    <table>
+      <name>OrderItem</name>
+      <name-sql>OrderItem</name-sql>
+      <name-tables>OrderItem</name-tables>
+      <namespace-sql>ECommerce.SQL.Content</namespace-sql>
+      <namespace-tables>ECommerce.Tables.Content</namespace-tables>
+      <inherit-from>Object, IComparable</inherit-from>
+      <relative-directory-sql>Content</relative-directory-sql>
+      <relative-directory-tables>Content</relative-directory-tables>
+      <list-text-accessor></list-text-accessor>
+      <list-value-accessor></list-value-accessor>
+      <columns>
+        <column>
+          <name-database>ID</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>True</is-identity>
+          <appears-execute-create>False</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for ID</comment>
+          <is-compare-to>True</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>order_id</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for OrderID</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>True</list-by-this-column>
+          <primary-table-name>ECommerce.Tables.Content.Order</primary-table-name>
+        </column>
+        <column>
+          <name-database>product_id</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for ProductID</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name>ECommerce.Tables.Content.Product</primary-table-name>
+        </column>
+        <column>
+          <name-database>quantity</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Quantity</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>unit_cost</name-database>
+          <type-database>Decimal</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for UnitCost</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>subtotal</name-database>
+          <type-database>Decimal</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Subtotal</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+      </columns>
+    </table>
+    <table>
+      <name>Product</name>
+      <name-sql>Product</name-sql>
+      <name-tables>Product</name-tables>
+      <namespace-sql>ECommerce.SQL.Content</namespace-sql>
+      <namespace-tables>ECommerce.Tables.Content</namespace-tables>
+      <inherit-from>Object, IComparable</inherit-from>
+      <relative-directory-sql>Content</relative-directory-sql>
+      <relative-directory-tables>Content</relative-directory-tables>
+      <list-text-accessor></list-text-accessor>
+      <list-value-accessor></list-value-accessor>
+      <columns>
+        <column>
+          <name-database>ID</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>True</is-identity>
+          <appears-execute-create>False</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for ID</comment>
+          <is-compare-to>True</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>category_id</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for CategoryID</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name>ECommerce.Tables.Content.Category</primary-table-name>
+        </column>
+        <column>
+          <name-database>name</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>200</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Name</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>description</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>MAX</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Description</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>price</name-database>
+          <type-database>Decimal</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Price</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>image_name</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>500</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for ImageName</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>status</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Status</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>True</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>date_created</name-database>
+          <type-database>DateTime</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>False</appears-execute-create>
+          <auto-current-date>True</auto-current-date>
+          <comment>No information available for DateCreated</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>date_modified</name-database>
+          <type-database>DateTime</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>False</appears-execute-create>
+          <auto-current-date>True</auto-current-date>
+          <comment>No information available for DateModified</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>created_account_id</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for CreatedAccountID</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name>ECommerce.Tables.Active.HR.Account</primary-table-name>
+        </column>
+        <column>
+          <name-database>modified_account_id</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for ModifiedAccountID</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name>ECommerce.Tables.Active.HR.Account</primary-table-name>
+        </column>
+      </columns>
+    </table>
+    <table>
+      <name>ShippingInfo</name>
+      <name-sql>ShippingInfo</name-sql>
+      <name-tables>ShippingInfo</name-tables>
+      <namespace-sql>ECommerce.SQL.Content</namespace-sql>
+      <namespace-tables>ECommerce.Tables.Content</namespace-tables>
+      <inherit-from>Object, IComparable</inherit-from>
+      <relative-directory-sql>Content</relative-directory-sql>
+      <relative-directory-tables>Content</relative-directory-tables>
+      <list-text-accessor></list-text-accessor>
+      <list-value-accessor></list-value-accessor>
+      <columns>
+        <column>
+          <name-database>ID</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>True</is-identity>
+          <appears-execute-create>False</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for ID</comment>
+          <is-compare-to>True</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>order_id</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for OrderID</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name>ECommerce.Tables.Content.Order</primary-table-name>
+        </column>
+        <column>
+          <name-database>type</name-database>
+          <type-database>Int</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Type</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>True</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>cost</name-database>
+          <type-database>Decimal</type-database>
+          <size-database></size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Cost</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+        <column>
+          <name-database>address</name-database>
+          <type-database>NVarChar</type-database>
+          <size-database>250</size-database>
+          <is-identity>False</is-identity>
+          <appears-execute-create>True</appears-execute-create>
+          <auto-current-date>False</auto-current-date>
+          <comment>No information available for Address</comment>
+          <is-compare-to>False</is-compare-to>
+          <list-by-this-column>False</list-by-this-column>
+          <primary-table-name />
+        </column>
+      </columns>
+    </table>
+  </tables>
+</framework>

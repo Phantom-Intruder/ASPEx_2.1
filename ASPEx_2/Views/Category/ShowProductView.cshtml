@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "ShowProductView";
+}
+<link href="background.css" rel="stylesheet" />
+
+@model ASPEx_2.Models.ProductModels
+<br />
+<br />
+<div class="jumbotron">
+    <blockquote>
+        <h3>@Model.Name</h3>
+    </blockquote>
+    <br />
+    <blockquote>
+        <h3>@Model.Description</h3>
+    </blockquote>
+    <br />
+    <blockquote>
+        <h3>@Model.Price</h3>
+    </blockquote>
+    <br />
+    <blockquote>
+        @{ string imageLocation = "/Filestore" + Model.FilePath.Replace('\\', '/');
+            <img id="imagePreview" src="@imageLocation" height="152" width="152" alt="Preview" />
+        }
+    </blockquote>
+    </div>

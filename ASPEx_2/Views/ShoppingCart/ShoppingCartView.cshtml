@@ -1,0 +1,76 @@
+﻿
+@{
+    ViewBag.Title = "Shopping Cart";
+}
+@using ASPEx_2.Helpers;
+
+@model ASPEx_2.Models.ShoppingCartModels
+
+<h2>Your shopping cart</h2>
+<link href="background.css" rel="stylesheet" />
+<div class="jumbotron">
+    <div id="saveCartButton">
+        @using (Ajax.BeginForm(new AjaxOptions
+        {
+            HttpMethod = "post",
+            InsertionMode = InsertionMode.Replace,
+            UpdateTargetId = "saveCartButton"
+        }))
+        {
+            <button class="btn btn-info pull-right">Save cart</button>
+        }
+    </div>
+    <br/>
+    <table id="table" class="table">
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Price</td>
+            <td>Image</td>
+            <td>Actions</td>
+        </tr>
+        @{int idLoop = 0; }
+        @foreach (string key in Model.ProductsList.Keys)
+        {
+            var product = Model.ProductsList[key];
+            <tr>
+                <td>@product.ID</td>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.Price</td>
+                @{ string filename= "/Filestore" + product.ImageName.Replace('\\', '/');
+                    <td><img height="100" width="100" src="@filename" /></td>
+                }
+                @{  if (SessionSingleton.Current.CurrentUserRole != 0)
+                    {
+                        <td>
+                            <a href="EditProductView?id=@product.ID">Edit</a>    <a href="DeleteProductView?id=@product.ID">Delete</a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @{ idLoop++; string idName = "formSection" + idLoop;}
+                            <div id="@idName" class="form-style-5">
+                                @using (Ajax.BeginForm(new AjaxOptions
+                                {
+                                    HttpMethod = "post",
+                                    InsertionMode = InsertionMode.Replace,
+                                    UpdateTargetId = idName
+                                }))
+                                {
+                                    <input type="hidden" name="name" value="@product.Name"/>
+                                    <center><button class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i></button></center>
+                                }</td>
+                    }
+                }
+
+            </tr>
+                    }
+    </table>
+    <br />
+    <br />
+    <h3>Final total is: @Model.TotalPrice</h3>
+    <a href="/CheckoutView/CheckoutView"><button class="btn btn-default">Go to checkout</button></a>
+</div>

@@ -1,0 +1,28 @@
+﻿@model ASPEx_2.Models.ShoppingCartModels
+
+<table style="width:100%;">
+    <tr>
+        <td>Name</td>
+        <td>Description</td>
+        <td>Price</td>
+        <td>Image</td>
+    </tr>
+    
+    @{int idLoop = 0; }
+    @foreach (string key in Model.ProductsList.Keys)
+    { var product = Model.ProductsList[key]; 
+        <tr>
+            <td>@product.Name</td>
+            <td>@product.Description</td>
+            <td>@product.Price</td>
+            
+            @{ string filename = "/Filestore" + product.ImageName.Replace('\\', '/');
+                <td><img height="100" width="100" src="@filename" /></td>
+            }
+           
+            
+        </tr>
+    }
+</table>
+<h3>Total price is: @Model.TotalPrice</h3>
+

@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.Title = "Admin View";
+}
+@model ASPEx_2.Models.AdminViewModels
+
+<h2>AdminView</h2>
+@using (Ajax.BeginForm(new AjaxOptions
+{
+    HttpMethod = "post"
+}))
+{
+<table style="width:100%;">
+    <tr>
+        <td>Product Name</td>
+        <td>Purchased number</td>
+    </tr>
+    @if (ViewBag.typeOfModel == "category")
+    {
+        foreach (var item in Model.GetListOfCategoryItemsUsed())
+        {
+            <tr>
+                <td>@item.Value.Name</td>
+                <td>@item.Value.Status</td>
+            </tr>
+        }
+    }
+    else if (ViewBag.typeOfModel == "product")
+    {
+        foreach (var item in Model.GetListOfCategoryItemsUsed())
+        {
+        <tr>
+            <td>@item.Value.Name</td>
+            <td>@item.Value.Status</td>          
+        </tr>
+        }
+    }
+    else
+    {
+        foreach (var item in Model.GetListOfItems())
+        {
+            <tr>
+                <td>@item.Key</td>
+                <td>@item.Value</td>
+            </tr>
+        }
+    }
+</table>
+<br />
+<br />
+<input type="hidden" name="saveTableField" value="@ViewBag.typeOfModel" />
+<button class="btn btn-default">Save table</button>
+}
+<br />
+<br />
+<br />
+<div class="well">
+    <h3>Filters</h3>
+@using (Ajax.BeginForm(new AjaxOptions
+{
+    HttpMethod = "post"
+}))
+{
+    <label for="job">Category filter:&nbsp;&nbsp;</label>
+    <select id="job" name="categoryField">
+       
+        @foreach (var item in Model.GetCategoriesList())
+        {
+            <option value="@item.ID">@item.Name</option>
+           
+        }        
+    </select>
+
+    <button class="btn btn-default">Filter</button>
+}
+    <br/>
+    <br />
+    <br />
+@using (Ajax.BeginForm(new AjaxOptions
+{
+    HttpMethod = "post"
+}))
+{
+    <label for="job2">Product filter:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+    <select id="job2" name="productField">
+        @{int value = 1; }
+        @foreach (string key in Model.GetProductsDictionary().Keys)
+        {
+            <option value="@key">@key</option>
+            {value = value + 1;
+            }
+        }
+    </select>
+    <button class="btn btn-default">Filter</button>
+}
+    <br />
+    <br />
+@using (Ajax.BeginForm(new AjaxOptions
+{
+    HttpMethod = "post"
+}))
+{
+    <button class="btn btn-danger">Clear filters</button>
+}
+</div>
+
+
+

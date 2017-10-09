@@ -1,0 +1,16 @@
+﻿@model ASPEx_2.Models.UserModel
+
+<table style="width:100%;">
+    <tr>
+        <td>Name</td>
+        <td>Shipping Address</td>
+        <td>Contact Number</td>
+        <td>Email</td>
+    </tr>
+    <tr>
+        <td>@Model.GetName()</td>
+        <td>@Model.GetShippingAddress()</td>
+        <td>@Model.GetContactNumber()</td>
+        <td>@Model.GetEmail()</td>
+    </tr>
+</table>

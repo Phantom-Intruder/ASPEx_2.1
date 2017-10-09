@@ -1,0 +1,57 @@
+﻿@model IEnumerable<ASPEx_2.Models.CategoryModels>
+@using ASPEx_2.Helpers;
+@using Volume.Toolkit.Paths;
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+<p class="pull-right">
+    @Html.ActionLink("Create new category", "Edit")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FileUpload)
+        </th>
+        <th>
+            Actions
+        </th>
+        <th></th>
+    </tr>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        @{ string filename = @Url.Content(item.GetImageSource());
+            <td><img height="100" width="100" src="@filename" /></td>
+        }
+        <td>
+            @{  if (SessionSingleton.Current.CurrentUserRole != 0)
+                {
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>  }
+                else
+                {
+                    <td>
+                        @Html.ActionLink("Details", "Details", new { id = item.ID }) 
+                    </td>  }
+            }
+    </tr>
+}
+
+</table>

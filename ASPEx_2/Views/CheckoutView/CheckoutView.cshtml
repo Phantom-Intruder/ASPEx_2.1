@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Checkout";
+}
+
+<h2>Checkout</h2>
+<link href="~/Content/tableStyle.css" rel="stylesheet" />
+<div id="userDiv">
+    @using (Ajax.BeginForm(new AjaxOptions
+    {
+        HttpMethod = "post",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "userDiv"
+    }))
+    {
+        <input type="hidden" name="isUser" />
+        <button class="btn btn-info">Show my information</button>
+    }
+</div>
+<br/>
+<br/>
+<br/>
+<div id="productDiv">
+    @using (Ajax.BeginForm(new AjaxOptions
+    {
+        HttpMethod = "post",
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "productDiv"
+    }))
+    {
+        <button class="btn btn-info">Show Product</button>
+    }
+</div>
+
+@section scripts{
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    }
